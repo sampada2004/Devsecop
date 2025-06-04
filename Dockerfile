@@ -1,14 +1,20 @@
-# Use a simple web server (nginx)
-FROM nginx:alpine
+# Use Python 3.9 as the base image
+FROM python:3.9-slim
 
-# Remove the default nginx page
-RUN rm /usr/share/nginx/html/*
+# Set working directory
+WORKDIR /app
 
-# Copy *your* index.html to nginx html folder
-COPY index.html /usr/share/nginx/html/index.html
+# Copy requirements first to leverage Docker cache
+COPY requirements.txt .
 
-# Expose port 80
-EXPOSE 80
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Copy the rest of the application
+COPY . .
+
+# Expose the port the app runs on
+EXPOSE 8000
+
+# Command to run the application
+CMD ["python", "api.py"]

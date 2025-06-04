@@ -1,48 +1,102 @@
 .inputSection {
   display: flex;
-  padding: 15px 0;
-  border-top: 1px solid #e0e0e0;
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  margin-top: 1rem;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .inputField {
   flex: 1;
-  padding: 12px 15px;
-  border: 1px solid #ddd;
-  border-radius: 20px;
-  font-size: 14px;
+  padding: 14px 20px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 24px;
+  font-size: 15px;
   resize: none;
   outline: none;
-  transition: border-color 0.3s;
+  transition: all 0.3s ease;
   font-family: inherit;
-  background-color: #cccccc;
+  background-color: rgba(15, 23, 42, 0.5);
+  color: #e2e8f0;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.05);
 }
 
 .inputField:focus {
-  border-color: #0084ff;
-  background-color: #ffffff;
+  border-color: #38bdf8;
+  background-color: rgba(15, 23, 42, 0.7);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+  transform: translateY(-2px);
 }
 
 .inputField::placeholder {
-  color: white;
+  color: rgba(226, 232, 240, 0.6);
+  font-style: italic;
 }
 
 .sendButton {
-  margin-left: 10px;
-  padding: 0 20px;
-  background-color: #0084ff;
+  margin-left: 12px;
+  padding: 0 25px;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: 24px;
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
 }
 
 .sendButton:hover {
-  background-color: #0073e6;
+  background: linear-gradient(90deg, #0ea5e9, #0284c7);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(14, 165, 233, 0.4);
 }
 
 .sendButton:disabled {
-  background-color: #cccccc;
+  background: rgba(148, 163, 184, 0.3);
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  color: rgba(226, 232, 240, 0.5);
+}
+
+.loadingDots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.loadingDots .dot {
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  border-radius: 50%;
+  animation: loadingPulse 1.5s infinite ease-in-out;
+}
+
+.loadingDots .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loadingDots .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loadingPulse {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
 }

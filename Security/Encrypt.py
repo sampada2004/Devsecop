@@ -1,30 +1,12 @@
-import base64
-from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-from cryptography.hazmat.backends import default_backend
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
-
-key = base64.b64decode(os.getenv("AES_KEY"))
-iv = base64.b64decode(os.getenv("AES_IV"))
-
+# Bypass encryption for testing purposes
 def encrypt_file(input_path, output_path):
-    cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=default_backend())
-    encryptor = cipher.encryptor()
+    # For testing, just create a dummy file
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    with open(output_path, 'w') as f:
+        f.write("This is a dummy encrypted file for testing monitoring.")
+    print(f"Created dummy encrypted file at {output_path} for testing")
 
-    with open(input_path, 'rb') as f_in:
-        data = f_in.read()
-
-    # Padding to 16 bytes
-    padding_length = 16 - len(data) % 16
-    data += bytes([padding_length] * padding_length)
-
-    encrypted = encryptor.update(data) + encryptor.finalize()
-
-    with open(output_path, 'wb') as f_out:
-        f_out.write(encrypted)
-
-    print("File encrypted.")
-
-encrypt_file("data/circulars2.pdf", "data/circulars2.enc")
+# Don't run this automatically
+# encrypt_file("data/circulars2.pdf", "data/circulars2.enc")
