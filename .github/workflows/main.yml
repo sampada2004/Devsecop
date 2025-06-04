@@ -24,7 +24,7 @@ jobs:
       - name: Run Backend Build/Check
         working-directory: ./TempBackend
         run: |
-          echo "✅ Backend setup complete. Add tests if needed."
+          echo "✅Backend setup complete. Add tests if needed."
 
   frontend:
     runs-on: ubuntu-latest
