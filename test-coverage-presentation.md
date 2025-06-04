@@ -7,7 +7,7 @@ RITBuddy is a chatbot application with:
 - MongoDB database
 - Comprehensive test coverage setup
 
-## Test Coverage Implementationss
+## Test Coverage Implementation
 
 ### Frontend Test Setup
 - **Framework**: Vitest + React Testing Library
