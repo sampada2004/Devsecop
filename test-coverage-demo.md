@@ -11,7 +11,7 @@
 4. Highlight InputSection component with 87% coverage
 5. Show test implementation for InputSection
 
-## Backend Testing Demos
+## Backend Testing 
 1. Show test files in `TempBackend/__tests__/` directory
 2. Run `npm run test:coverage` in the root directory
 3. Explain the coverage report
