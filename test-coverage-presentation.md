@@ -11,7 +11,7 @@ RITBuddy is a chatbot application with:
 
 ### Frontend Test Setup
 - **Framework**: Vitest + React Testing Library
-- **Configuration**: 
+- **Configurationss**: 
   - Located in `vite.config.js` and `setupTests.js`
   - Uses jsdom environment for DOM testing
   - Coverage reporting with V8
